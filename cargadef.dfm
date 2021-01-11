@@ -1,0 +1,156 @@
+object Form2: TForm2
+  Left = 331
+  Top = 143
+  Width = 417
+  Height = 516
+  Caption = 'Carga de Combustible'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Label6: TLabel
+    Left = 72
+    Top = 295
+    Width = 81
+    Height = 13
+    Caption = 'Cantidad en litros'
+  end
+  object Label5: TLabel
+    Left = 72
+    Top = 256
+    Width = 30
+    Height = 13
+    Caption = 'Fecha'
+  end
+  object Label1: TLabel
+    Left = 72
+    Top = 328
+    Width = 46
+    Height = 13
+    Caption = 'Odometro'
+  end
+  object Label2: TLabel
+    Left = 72
+    Top = 160
+    Width = 37
+    Height = 13
+    Caption = 'Patente'
+  end
+  object Label3: TLabel
+    Left = 72
+    Top = 192
+    Width = 34
+    Height = 13
+    Caption = 'Solicita'
+  end
+  object Label4: TLabel
+    Left = 72
+    Top = 224
+    Width = 64
+    Height = 13
+    Caption = 'Destino/Obra'
+  end
+  object Ltitulo: TLabel
+    Left = 48
+    Top = 40
+    Width = 319
+    Height = 37
+    Caption = 'Carga de Combustible'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -32
+    Font.Name = 'MS Sans Serif'
+    Font.Style = [fsUnderline]
+    ParentFont = False
+  end
+  object Label8: TLabel
+    Left = 72
+    Top = 104
+    Width = 80
+    Height = 29
+    Caption = 'N'#186' Vale'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -24
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Elitros: TEdit
+    Left = 168
+    Top = 290
+    Width = 145
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 0
+  end
+  object Efecha: TEdit
+    Left = 168
+    Top = 246
+    Width = 145
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 1
+  end
+  object Ekilometros: TEdit
+    Left = 168
+    Top = 320
+    Width = 145
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 2
+  end
+  object Epatente: TComboBox
+    Left = 168
+    Top = 152
+    Width = 145
+    Height = 21
+    CharCase = ecUpperCase
+    ItemHeight = 13
+    TabOrder = 3
+  end
+  object Echofer: TComboBox
+    Left = 168
+    Top = 184
+    Width = 145
+    Height = 21
+    CharCase = ecUpperCase
+    ItemHeight = 13
+    TabOrder = 4
+  end
+  object Edestino: TComboBox
+    Left = 168
+    Top = 216
+    Width = 145
+    Height = 21
+    CharCase = ecUpperCase
+    ItemHeight = 13
+    TabOrder = 5
+  end
+  object Btguardar: TButton
+    Left = 56
+    Top = 352
+    Width = 337
+    Height = 97
+    Caption = 'Guardar'
+    TabOrder = 6
+  end
+  object Envale: TEdit
+    Left = 168
+    Top = 96
+    Width = 105
+    Height = 37
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -24
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 7
+  end
+end

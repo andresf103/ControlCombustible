@@ -1,0 +1,85 @@
+//---------------------------------------------------------------------------
+
+#include <vcl.h>
+#pragma hdrstop
+
+#include "Promedio.h"
+#include "funciones.h"
+#include <stdlib.h>
+//---------------------------------------------------------------------------
+#pragma package(smart_init)
+#pragma resource "*.dfm"
+TFpromedio *Fpromedio;
+//---------------------------------------------------------------------------
+__fastcall TFpromedio::TFpromedio(TComponent* Owner)
+        : TForm(Owner)
+{
+}
+//---------------------------------------------------------------------------
+void __fastcall TFpromedio::EfechaiKeyPress(TObject *Sender, char &Key)
+{
+TEdit *Edit = dynamic_cast<TEdit *>(Sender);
+        if(!(Key>='0'&&Key<='9'||Key==VK_BACK||Key==VK_DELETE)){
+                Key='\0';
+        }
+
+        if((Edit->Text.Length()==2||Edit->Text.Length()==5)&&!(Key==VK_BACK||Key==VK_DELETE)){
+
+
+                Edit->Text = Edit->Text + "/";
+                Edit->SelStart=Edit->Text.Length();
+        }
+        if(Edit->Text.Length()==10&&!(Key==VK_BACK||Key==VK_DELETE)){
+                Key='\0';
+        }
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFpromedio::BpromediarClick(TObject *Sender)
+{
+try{
+vector <spromedio> prom;
+scarga carga;
+char fechai[11];
+char fechaf[11];
+strcpy(fechai,Efechai->Text.c_str());
+fechai[10]='\0';
+strcpy(fechaf,Efechaf->Text.c_str());
+fechaf[10]='\0';
+prom=promedio(fechai,fechaf);
+ofstream archivo("promedio.csv");
+	archivo<<"Patente"<<';'<<"Vehiculo"<<";"<<"Chofer"<<";"<<"km inicial"<<';'<<"km final"<<';'<<"litros totales del periodo"<<';'<<"consumo de litros c/100km"<<endl;
+	if(prom.size()==0){
+		archivo<<prom[0].patente<<';'<<datosvehiculo(prom[0].patente).vehiculo<<';'<<prom[0].kminicial<<';'<<prom[0].kmfinal<<';'<<prom[0].litros<<';'<<prom[0].rinde<<endl;
+	}else{
+		for(int i=0;i<(int)prom.size();i++){
+                        carga=anterior(prom[i].patente);
+			archivo<<prom[i].patente<<';'<<datosvehiculo(prom[i].patente).vehiculo<<';'<<carga.chofer<<';'<<prom[i].kminicial<<';'<<prom[i].kmfinal<<';'<<prom[i].litros<<';'/*<<'\''*/<<prom[i].rinde<<endl;
+		}
+	};
+	archivo.close();
+        ShellExecute(0,"open","promedio.csv",NULL,NULL,1);
+}catch(Exception &error){
+ShowMessage("Ningun resultado que mostrar\nEn ese periodo");
+}
+
+
+
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFpromedio::FormCreate(TObject *Sender)
+{
+    scarga primer;
+    primer=buscarid(0);
+    Efechai->Text=primer.fecha;
+    Efechaf->Text=Date().CurrentDate().FormatString("dd/mm/yyyy");
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TFpromedio::FormKeyPress(TObject *Sender, char &Key)
+{
+ if(Key==VK_ESCAPE){this->Close();}
+}
+//---------------------------------------------------------------------------
+

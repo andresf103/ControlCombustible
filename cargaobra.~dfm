@@ -1,0 +1,71 @@
+object Fobras: TFobras
+  Left = 428
+  Top = 150
+  Width = 448
+  Height = 374
+  Caption = 'Obras'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  KeyPreview = True
+  OldCreateOrder = False
+  OnKeyPress = FormKeyPress
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Ltitulo: TLabel
+    Left = 112
+    Top = 40
+    Width = 146
+    Height = 29
+    Caption = 'Alta de Obras'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -24
+    Font.Name = 'MS Sans Serif'
+    Font.Style = []
+    ParentFont = False
+  end
+  object Ldistancia: TLabel
+    Left = 48
+    Top = 144
+    Width = 44
+    Height = 13
+    Caption = 'Distancia'
+  end
+  object Ldestino: TLabel
+    Left = 48
+    Top = 104
+    Width = 64
+    Height = 13
+    Caption = 'Obra/Destino'
+  end
+  object Btguardar: TButton
+    Left = 8
+    Top = 208
+    Width = 385
+    Height = 113
+    Caption = 'Guardar'
+    TabOrder = 0
+    OnClick = BtguardarClick
+  end
+  object Edestino: TEdit
+    Left = 120
+    Top = 96
+    Width = 257
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 1
+    OnChange = EdestinoChange
+  end
+  object Edistancia: TEdit
+    Left = 120
+    Top = 136
+    Width = 73
+    Height = 21
+    CharCase = ecUpperCase
+    TabOrder = 2
+  end
+end
